@@ -20,7 +20,7 @@ class App extends Component {
                     <Route path="/pizza" component={AsyncPizza} />
                 </div>
                 <div className = {classes.footer}>
-                    Footer
+                    All rights reserved
                 </div>
             </div>
         );

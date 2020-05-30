@@ -5,9 +5,12 @@ import classes from './Header.scss';
 const Header = (props) => {
     return (
         <div className={classes.header}>
-            <Link to="/">SHOPYY!</Link>
-            <Link to="/">Users</Link> |
-            <Link to="/pizza">Pizza</Link>
+            <div className={classes.brand}><Link to="/">SHOPYY !</Link></div>
+            <div>
+                <Link to="/">Users</Link>
+                <Link to="/pizza">Pizza</Link>
+            </div>
+
         </div>
     )
 }

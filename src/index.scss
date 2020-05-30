@@ -18,7 +18,7 @@ body {
                          "main"
                          "footer";
     grid-template-columns: 1fr;
-    grid-template-rows: 2rem auto minmax(3rem, 5rem);
+    grid-template-rows: 3rem auto minmax(2rem, 2rem);
     height: 100vh;
 }
 
@@ -27,4 +27,9 @@ body {
 }
 .footer {
     grid-area: "footer";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #383232;
+    color: #fff;
 }
