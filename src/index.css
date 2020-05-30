@@ -1,5 +1,30 @@
+@font-face {
+    font-family: "BalsamiqSans";
+    src: url("/src/assets/fonts/BalsamiqSans-Regular.ttf");
+}
+@font-face {
+    font-family: "BalsamiqSans";
+    src: url("/src/assets/fonts/BalsamiqSans-Bold.ttf");
+    font-weight: 700;
+}
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif
+    font-family: "BalsamiqSans", sans-serif;
+}
+.container {
+    display: grid;
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 2rem auto minmax(3rem, 5rem);
+    height: 100vh;
+}
+
+.main {
+    grid-area: "main";
+}
+.footer {
+    grid-area: "footer";
 }
