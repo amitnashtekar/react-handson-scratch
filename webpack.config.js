@@ -1,6 +1,7 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
@@ -19,7 +20,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.css$/,
+                test: /\.module\.s(a|c)ss$/,
                 exclude: /node_modules/,
                 use: [
                     {loader: 'style-loader'},
@@ -32,6 +33,43 @@ module.exports = {
                             }
                         }
                     },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [autoprefixer()]
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.s(a|c)ss$/,
+                exclude: [/node_modules/, /\.module.(s(a|c)ss)$/],
+                use: [
+                    {loader: 'style-loader'},
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: {
+                                localIdentName: '[name]__[local]__[hash:base64:5]'
+                            }
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    
                     {
                         loader: 'postcss-loader',
                         options: {
@@ -53,6 +91,10 @@ module.exports = {
             filename: 'index.html',
             inject: 'body'
 
-        })
+        }),
+        new MiniCssExtractPlugin({
+                filename:  '[name].css',
+                chunkFilename: '[id].css'
+            })
     ]
 }

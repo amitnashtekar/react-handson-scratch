@@ -8,7 +8,7 @@ import asyncComponent from './hoc/asyncComponent';
 const AsyncPizza = asyncComponent(() => {
     return import('./containers/Pizza.js');
 });
-import classes from './index.css';
+import classes from './index.scss';
 
 class App extends Component {
     render () {

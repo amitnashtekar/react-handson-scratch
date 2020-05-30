@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './PizzaImage.css';
+import classes from './PizzaImage.scss';
 import PizzaImage from '../../assets/pizza.jpg';
 
 const pizzaImage = (props) => (
