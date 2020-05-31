@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Link, Route } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Users from './containers/Users';
 import Products from './containers/Products/Products';
+import Sidebar from './containers/Sidebar/Sidebar';
 import asyncComponent from './hoc/asyncComponent';
 
 const AsyncPizza = asyncComponent(() => {
@@ -11,11 +12,17 @@ const AsyncPizza = asyncComponent(() => {
 });
 import classes from './index.scss';
 
-class App extends Component {
-    render () {
+const App = (props) =>  {
+    const [sideBarOpen, toggleSideBar] = useState(false);
+    const openSideBar = () => {
+        toggleSideBar(sideBarOpen => !sideBarOpen)
+    }
+    
         return (
             <div className = {classes.container}>
-                <Header />
+                
+                <Header openSideBar = {openSideBar}  />
+                <Sidebar open = {sideBarOpen} openSideBar = {openSideBar}/>
                 <div className = {classes.main}>
                     <Route path="/" exact component={Products} />
                     <Route path="/pizza" component={AsyncPizza} />
@@ -25,7 +32,7 @@ class App extends Component {
                 </div>
             </div>
         );
-    }
+    
 }
 
 export default App;

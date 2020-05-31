@@ -11,7 +11,9 @@ const Products = (props) => {
                     <img src = {TshirtCute} alt="cute T shirt" />
                     <div className = {classes.name}>
                         <a href="#">Cute 2</a> </div>
-                    <div className = {classes.brand}>Puma </div>
+                    <div className = {classes.brand}>
+                       
+                        Puma </div>
                     <div className = {classes.price}>$40 </div>
                     <div className = {classes.rating}>4.5 Stars </div>
                 </li>
