@@ -25,6 +25,7 @@ const App = (props) =>  {
                 <Sidebar open = {sideBarOpen} openSideBar = {openSideBar}/>
                 <div className = {classes.main}>
                     <Route path="/" exact component={Products} />
+                    <Route path="/product:id" component={Users} />
                     <Route path="/pizza" component={AsyncPizza} />
                 </div>
                 <div className = {classes.footer}>
