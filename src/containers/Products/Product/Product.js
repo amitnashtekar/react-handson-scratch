@@ -8,7 +8,7 @@ const Product = (props) => (
         return <li key={product.name} className={classes.product}>
             <img src={product.image} alt="cute T shirt" />
             <div className={classes.name}>
-                <Link to = {'/products/' + product._id} >{product.name}</Link> </div>
+                <Link to = {'/product/' + product._id} >{product._id + product.name}</Link> </div>
             <div className={classes.brand}>
                 {product.brand} 
             </div>
