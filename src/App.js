@@ -3,6 +3,7 @@ import { Link, Route } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Users from './containers/Users';
+import Products from './containers/Products/Products';
 import asyncComponent from './hoc/asyncComponent';
 
 const AsyncPizza = asyncComponent(() => {
@@ -16,7 +17,7 @@ class App extends Component {
             <div className = {classes.container}>
                 <Header />
                 <div className = {classes.main}>
-                    <Route path="/" exact component={Users} />
+                    <Route path="/" exact component={Products} />
                     <Route path="/pizza" component={AsyncPizza} />
                 </div>
                 <div className = {classes.footer}>

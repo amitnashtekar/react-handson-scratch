@@ -1,0 +1,42 @@
+.products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.product {
+    flex: 0 1 34rem;
+    margin: 1rem;
+    list-style: none;
+    border-bottom: 1px solid #d22929;
+    text-align: center;
+    div{
+        margin-bottom: 0.4rem;
+    }
+    .name {
+        font-size: 1rem;
+        font-weight: bold;
+        a{
+            text-decoration: none;
+            color: #615151;
+        }
+        a:hover{
+            color: #d22929
+        }
+    }
+    .rating {
+        font-size: 1.0rem;
+    }
+    .brand {
+        font-size: 0.9rem;
+        color: #ba2727
+    }
+    .price {
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+    img {
+        max-width: 26rem;        
+    }
+}
