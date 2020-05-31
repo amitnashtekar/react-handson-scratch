@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Users from './containers/Users';
 import Products from './containers/Products/Products';
 import Sidebar from './containers/Sidebar/Sidebar';
+import ProductDetail from './containers/ProductDetail/ProductDetail';
 import asyncComponent from './hoc/asyncComponent';
 
 const AsyncPizza = asyncComponent(() => {
@@ -25,7 +26,7 @@ const App = (props) =>  {
                 <Sidebar open = {sideBarOpen} openSideBar = {openSideBar}/>
                 <div className = {classes.main}>
                     <Route path="/" exact component={Products} />
-                    <Route path="/product:id" component={Users} />
+                    <Route path="/product:id" component={ProductDetail} />
                     <Route path="/pizza" component={AsyncPizza} />
                 </div>
                 <div className = {classes.footer}>
