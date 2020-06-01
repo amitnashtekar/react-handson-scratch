@@ -9,7 +9,7 @@ import ProductDetail from './containers/ProductDetail/ProductDetail';
 import Login from './containers/Login/Login';
 import asyncComponent from './hoc/asyncComponent';
 
-import {auth} from './firebase/util';
+import {auth, handleUserSnapshot} from './firebase/util';
 
 const AsyncPizza = asyncComponent(() => {
     return import('./containers/Pizza.js');
@@ -21,11 +21,18 @@ const App = (props) =>  {
     const [isLoggedIn, setLoggedIn] = useState(null);
     console.log('isLoggedIn', isLoggedIn);
     useEffect(() => {
-        const authListner = auth.onAuthStateChanged(authStatus => {
+        const authListner = auth.onAuthStateChanged(async authStatus => {
             if (!authStatus) {
                 setLoggedIn(isLoggedIn => isLoggedIn = null)
             } else {
-                setLoggedIn(isLoggedIn => isLoggedIn = authStatus)
+                const userRef = await handleUserSnapshot(authStatus);
+                userRef.onSnapshot(snapshot => {
+                setLoggedIn(isLoggedIn => isLoggedIn = {
+                        id: snapshot.id,
+                        ...snapshot.data()
+                    })
+                })
+                
             }
         })
         return () => {
