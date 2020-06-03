@@ -15,6 +15,8 @@ const AsyncPizza = asyncComponent(() => {
     return import('./containers/Pizza.js');
 });
 import classes from './index.scss';
+import SignUp from './containers/Login/SignUp/SingUp';
+import {withRouter} from 'react-router-dom'
 
 const App = (props) =>  {
     const [sideBarOpen, toggleSideBar] = useState(false);
@@ -52,10 +54,11 @@ const App = (props) =>  {
                 <Sidebar open = {sideBarOpen} openSideBar = {openSideBar}/>
                 <div className = {classes.main}>
                     <Route path="/" exact component={Products} />
-                    <Route path="/signin" exact
-                    render = {() =>isLoggedIn ?<Redirect to="/" />: (
+                                        
+                    <Route path="/signin/:type" 
+                    render = {(props) =>isLoggedIn ?<Redirect to="/" />: (
                         
-                    <Login />
+                    <Login {...props} />
                     )}
                      />
                     <Route path="/product/:id" component={ProductDetail} />
@@ -69,4 +72,4 @@ const App = (props) =>  {
     
 }
 
-export default App;
+export default withRouter(App);

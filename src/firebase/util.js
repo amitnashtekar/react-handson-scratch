@@ -3,6 +3,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 import fireBaseConfig from './config';
 
+
 firebase.initializeApp(fireBaseConfig);
 
 export const fireStore = firebase.firestore();

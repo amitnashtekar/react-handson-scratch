@@ -15,7 +15,7 @@ const Header = (props) => {
             <div>
                 <Link to="/">Users</Link>
                 <Link to="/pizza">Pizza</Link>
-                {!props.isLoggedIn ? <Link to="/signin">Sign In</Link>: <Logout />}
+                {!props.isLoggedIn ? <Link to="/signin/login">Sign In</Link>: <Logout />}
             </div>
 
         </div>

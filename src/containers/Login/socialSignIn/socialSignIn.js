@@ -5,7 +5,7 @@ import classes from './socialSignIn.module.scss';
 
 const SocialSignIn = (props) => (
     <div className = "googlebtn">
-        <Button onClick = {singInWithGoogle}>login with Google</Button>
+        <Button onClick = {singInWithGoogle}>Sign In with Google</Button>
     </div>
 );
 
