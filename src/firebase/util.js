@@ -4,8 +4,9 @@ import 'firebase/auth';
 import fireBaseConfig from './config';
 
 
+//fireBaseConfig.API_KEY = process.env.API_KEY
 firebase.initializeApp(fireBaseConfig);
-
+console.log('process.env.MODE',process.env.MODE);
 export const fireStore = firebase.firestore();
 export const auth = firebase.auth();
 

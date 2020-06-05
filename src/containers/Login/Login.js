@@ -8,14 +8,12 @@ import Input from '../../components/Input/Input';
 import {auth, handleUserSnapshot} from '../../firebase/util';
 import SingIn from './SignIn/SignIn';
 
-
-
 const Login = ({match:{params},...otherProps}) => {
 
    const SignInUp = params.type === "login" ? <SingIn /> : <SignUp />
 
     return (
-        <div className={classes.login}>
+        <div className={classes.login}>            
            {SignInUp}         
         </div>
     )
