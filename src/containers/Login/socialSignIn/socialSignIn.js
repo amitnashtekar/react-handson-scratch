@@ -4,7 +4,7 @@ import {singInWithGoogle} from '../../../firebase/util';
 import classes from './socialSignIn.module.scss';
 
 const SocialSignIn = (props) => (
-    <div className = "googlebtn">
+    <div className = {classes.googlebtn}>
         <Button onClick = {singInWithGoogle}>Sign In with Google</Button>
     </div>
 );
