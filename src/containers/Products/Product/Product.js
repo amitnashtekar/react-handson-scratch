@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import classes from './Product.module.scss';
-import data from '../../../data';
+import data from '../../../Data/data';
 
 const Product = (props) => (
     data.products.map(product => {

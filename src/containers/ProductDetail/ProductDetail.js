@@ -1,64 +1,36 @@
-import React from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import classes from './ProductDetail.module.scss';
-import data from '../../data';
+import data from '../../Data/product_detail.js';
+import ProductView from './ProductView/ProductView';
+import ProductFeature from './ProductFeature/ProductFeature';
+
 
 const ProductDetail = (props) => {
-    const product = data.products.find(p => p._id === props.match.params.id);
+    const product =
+         data.ProductData.find(p => p._productId === props.match.params.id)
+    
+    const [selectedColor, setColor] = useState(product.colorOptions[0]);
+    
+    const handleColorChange = useCallback((colorIndex) => {
+
+        console.log(colorIndex);
+        setColor(selectedColor => selectedColor = product.colorOptions[colorIndex]);
+    }, [product, setColor])
     return (
         <div className="">
             <div className={classes.backlink}>
                 <Link to="/">Back to products</Link>
             </div>
             <div className={classes.product}>
-                <div className={classes["product-image"]}>
-                    <img src={product.image} />
-                </div>
-                <div className="product-detail">
-                    <ul className={classes["product-lists"]}>
-                        <li className="product-lists">
-                            <h4>product.name</h4>
-                        </li>
-                        <li>
-                            {product.brand}
-                        </li>
-                        <li className="product-lists">
-                            {product.rating} Stars & {product.numReviews} Reviews
-                        </li>
-                        <li>
-                           Price: ${product.price}
-                        </li>
-                    </ul>
+                <ProductView src={selectedColor.imageUrl} />
 
-                </div>
-                <div className = {classes["product-action"]}>
-                    <ul>
-                        <li>
-                            Price: ${product.price}
-                        </li>
-                        <li>
-                            Status: {product.status}
-                        </li>
-                        <li>
-                            Qty: <select>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </li>
-                        <li>
-                            <button className={classes["cart-button"]}>
-                                Add To Cart
-                            </button>
-                        </li>
-                        
-                    </ul>
-                </div>
+                <ProductFeature product={product} handleColorChange={handleColorChange} />
+
             </div>
         </div>
     )
 };
 
 
-export default ProductDetail;
+export default ProductDetail; 

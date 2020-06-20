@@ -1,0 +1,21 @@
+.product-lists {
+    list-style-type: none;
+    li{
+        margin-bottom: 1rem;
+    }
+    
+}
+.product-image{
+    flex: 0 1 30rem;
+    img{
+        max-width: 30rem;
+        width: 100%;
+    }
+}
+
+.cart-button:hover{
+    background: #d22929;
+}
+.colorButton {
+    display: flex;
+}

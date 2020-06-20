@@ -1,10 +1,11 @@
 
-import tshirtImg from './assets/images/5Years-t-shirt/cute.jpg';
+import tshirtImg from '../assets/images/5Years-t-shirt/cute.jpg';
+
 export default {
     products: [
         {
             _id:'1',
-            name:'cute T-shirt',
+            name:'cute T-shirt new',
             category: 'tshirt',
             image:tshirtImg,
             price: 40,
